@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import CategoryPieChart from "./components/CategoryPieChart";
+import TransactionList from "./components/TransactionList";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -12,8 +14,8 @@ function App() {
 
   return (
       <div className="App">
-        <h1>Personal Finance App</h1>
-        <p>{message}</p>
+        <CategoryPieChart />
+          <TransactionList />
       </div>
   );
 }
