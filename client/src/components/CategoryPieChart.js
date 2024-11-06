@@ -6,6 +6,7 @@ import { transactions } from '../data/sampledata';
 Chart.register(ArcElement);
 
 function CategoryPieChart() {
+
     const categories = transactions.reduce((acc, transaction) => {
         acc[transaction.category] = (acc[transaction.category] || 0) + transaction.amount;
         return acc;
@@ -22,8 +23,7 @@ function CategoryPieChart() {
     };
 
     return (
-        <div>
-            <h2>Spending by Category</h2>
+        <div className="chart-container">
             <Pie data={data} />
         </div>
     );

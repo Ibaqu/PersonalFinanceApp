@@ -1,26 +1,62 @@
-
+/* General styles */
 .App {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
     font-family: Arial, sans-serif;
-}
-
-h2 {
     color: #333;
+    margin: 0 auto;
 }
 
-ul {
+/* Layout styles */
+.dashboard-layout {
+    display: flex;
+    flex-grow: 1;
+}
+
+header {
+    background-color: #4a90e2;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Sidebar styles */
+aside {
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+aside nav ul {
     list-style: none;
     padding: 0;
 }
 
-li {
+aside nav ul li {
     padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    cursor: pointer;
 }
 
-span {
-    display: inline-block;
-    width: 30%;
+aside nav ul li:hover {
+    background-color: #555;
+}
+
+/* MainContent styles */
+main {
+    flex: 1; /* Allows MainContent to take up remaining space */
+    padding: 30px;
+    background-color: #f9f9f9;
+}
+
+/* Chart Styles */
+.chart-container {
+    max-width: 300px;  /* Set maximum width */
+    max-height: 300px; /* Set maximum height */
+    margin: 0 auto;    /* Center the chart */
+}
+
+.chart-container canvas {
+    width: 100% !important; /* Make the chart fit the container */
+    height: 100% !important;
 }
