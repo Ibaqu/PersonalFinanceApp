@@ -5,13 +5,24 @@ function TransactionList() {
     return (
         <div>
             <h2>Transactions for November</h2>
-            <ul>
+            <table className="transaction-table">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                </tr>
+                </thead>
+                <tbody>
                 {transactions.map((transaction) => (
-                    <li key={transaction.id}>
-                        <span>{transaction.date}</span> - <span>{transaction.name}</span> - <span>${transaction.amount}</span>
-                    </li>
+                    <tr key={transaction.id}>
+                        <td>{new Date(transaction.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' })}</td>
+                        <td>{transaction.name}</td>
+                        <td>${transaction.amount.toFixed(2)}</td>
+                    </tr>
                 ))}
-            </ul>
+                </tbody>
+            </table>
         </div>
     );
 }
