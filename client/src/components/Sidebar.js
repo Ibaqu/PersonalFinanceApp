@@ -1,13 +1,12 @@
 import React from 'react';
 
-function Sidebar() {
+function Sidebar({ setPage }) {
     return (
         <aside>
             <nav>
                 <ul>
-                    <li>Dashboard</li>
-                    <li>Reports</li>
-                    <li>Settings</li>
+                    <li onClick={() => setPage("Dashboard")}>Dashboard</li>
+                    <li onClick={() => setPage("Spending")}>Spending</li>
                 </ul>
             </nav>
         </aside>
