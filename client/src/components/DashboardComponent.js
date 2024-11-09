@@ -1,7 +1,7 @@
 import React from 'react';
-import CurrentSpendChart from './CurrentSpendChart';
-import AccountsTable from './AccountsTable';
-import TransactionsList from './TransactionsList';
+import CurrentSpendChart from './DashboardComponents/CurrentSpendChart';
+import AccountsTable from './DashboardComponents/AccountsTable';
+import TransactionsList from './DashboardComponents/TransactionsList';
 
 function DashboardComponent() {
     return (
