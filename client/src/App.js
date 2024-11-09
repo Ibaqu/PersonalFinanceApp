@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
     const [message, setMessage] = useState("");
-    const [page, setPage] = useState("Dashboard"); // New state to track current page
+    const [page, setPage] = useState("Dashboard");
 
     useEffect(() => {
         fetch("/api/message")
@@ -20,7 +20,7 @@ function App() {
         <div className="App">
             <Header />
             <div className="dashboard-layout">
-                <Sidebar setPage={setPage} /> {/* Pass setPage to Sidebar */}
+                <Sidebar setPage={setPage} /> {}
                 <main className="main-content">
                     {page === "Dashboard" && <DashboardComponent />}
                     {page === "Spending" && <SpendingComponent />}
