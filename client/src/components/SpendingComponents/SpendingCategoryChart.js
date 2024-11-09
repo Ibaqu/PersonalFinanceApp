@@ -1,11 +1,11 @@
 import React from 'react';
 import {Chart, ArcElement} from "chart.js";
 import { Pie } from 'react-chartjs-2';
-import { transactions } from '../data/sampledata';
+import { transactions } from '../../data/sampledata';
 
 Chart.register(ArcElement);
 
-function CategoryPieChart() {
+function SpendingCategoryChart() {
 
     const categories = transactions.reduce((acc, transaction) => {
         acc[transaction.category] = (acc[transaction.category] || 0) + transaction.amount;
@@ -29,4 +29,4 @@ function CategoryPieChart() {
     );
 }
 
-export default CategoryPieChart;
+export default SpendingCategoryChart;

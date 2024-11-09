@@ -1,7 +1,13 @@
+import React from 'react';
+import SpendingCategoryChart from './SpendingComponents/SpendingCategoryChart';
+import CategoryTable from './SpendingComponents/CategoryTable';
+
 function SpendingComponent() {
     return (
         <div>
-            <h1>SPENDING COMPONENT</h1>
+            <h1>Spending Component</h1>
+            <SpendingCategoryChart />
+            <CategoryTable />
         </div>
     );
 }
