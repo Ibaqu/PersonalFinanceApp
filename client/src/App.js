@@ -6,15 +6,7 @@ import SpendingComponent from "./components/SpendingComponent";
 import './App.css';
 
 function App() {
-    const [message, setMessage] = useState("");
     const [page, setPage] = useState("Dashboard");
-
-    useEffect(() => {
-        fetch("/api/message")
-            .then((response) => response.json())
-            .then((data) => setMessage(data.message))
-            .catch((error) => console.error("Error fetching message:", error));
-    }, []);
 
     return (
         <div className="App">
