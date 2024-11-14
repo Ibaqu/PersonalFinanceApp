@@ -74,6 +74,57 @@ app.get("/api/balance/get", (req, res) => {
     });
 });
 
+// API Endpoint to get Transaction data
+app.get("/transactions/sync", (req, res) => {
+    // Define the file path
+    const dataPath = path.join(__dirname, "resources/sampleData/transactions_sync.json");
+
+    // Read the JSON file
+    fileStream.readFile(dataPath, (err, data) => {
+        if (err) {
+            console.error("Error reading transactions_sync file:", err);
+            return res.status(500).json({ error: "Failed to load transactions data" });
+        }
+
+        // Parse the JSON data
+        const transactionsSyncData = JSON.parse(data);
+
+        // Extract added, modified, and removed transactions
+        const addedTransactions = transactionsSyncData.added.map(transaction => ({
+            transaction_id: transaction.transaction_id,
+            date: transaction.date,
+            name: transaction.name,
+            amount: transaction.amount,
+            category: transaction.category[0], // Primary category
+            merchant: transaction.merchant_name,
+            logo_url: transaction.logo_url,
+            type: "added"
+        }));
+
+        const modifiedTransactions = transactionsSyncData.modified.map(transaction => ({
+            transaction_id: transaction.transaction_id,
+            date: transaction.date,
+            name: transaction.name,
+            amount: transaction.amount,
+            category: transaction.category[0],
+            merchant: transaction.merchant_name,
+            logo_url: transaction.logo_url,
+            type: "modified"
+        }));
+
+        const removedTransactions = transactionsSyncData.removed.map(transaction => ({
+            transaction_id: transaction.transaction_id,
+            type: "removed"
+        }));
+
+        // Combine all transactions into a single array
+        const transactions = [...addedTransactions, ...modifiedTransactions, ...removedTransactions];
+
+        // Send the transactions data as a response
+        res.json({ transactions });
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

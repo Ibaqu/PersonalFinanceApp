@@ -7,7 +7,7 @@ function TransactionsList() {
             date: '11/01',
             name: 'Groceries',
             amount: 50,
-            merchantLogo: '/logoipsum-300.svg', // Path from public folder
+            merchantLogo: '/logoipsum-300.svg',
             categoryLogo: '/logoipsum-300.svg'
         },
         {
@@ -15,7 +15,7 @@ function TransactionsList() {
             date: '11/02',
             name: 'Utilities',
             amount: 100,
-            merchantLogo: '', // No merchant logo available
+            merchantLogo: '',
             categoryLogo: '/logoipsum-300.svg'
         },
         {
