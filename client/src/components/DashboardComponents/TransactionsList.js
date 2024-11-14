@@ -1,15 +1,14 @@
 import React from 'react';
 
 function TransactionsList() {
-    // Sample transaction data
     const transactions = [
         {
             id: 1,
             date: '11/01',
             name: 'Groceries',
             amount: 50,
-            merchantLogo: 'https://via.placeholder.com/50', // Sample logo URL
-            categoryLogo: 'https://via.placeholder.com/50' // Sample logo URL for category
+            merchantLogo: '/logoipsum-300.svg', // Path from public folder
+            categoryLogo: '/logoipsum-300.svg'
         },
         {
             id: 2,
@@ -17,28 +16,28 @@ function TransactionsList() {
             name: 'Utilities',
             amount: 100,
             merchantLogo: '', // No merchant logo available
-            categoryLogo: 'https://via.placeholder.com/50'
+            categoryLogo: '/logoipsum-300.svg'
         },
         {
             id: 3,
             date: '11/03',
             name: 'Dining',
             amount: 30,
-            merchantLogo: 'https://via.placeholder.com/50',
-            categoryLogo: 'https://via.placeholder.com/50'
+            merchantLogo: '/logoipsum-300.svg',
+            categoryLogo: '/logoipsum-300.svg'
         }
     ];
 
     return (
         <div>
             <h2>Transactions for November</h2>
-            <table>
+            <table className="transaction-table">
                 <thead>
                 <tr>
                     <th>Date</th>
-                    <th>Merchant Logo</th>
+                    <th></th>
                     <th>Description</th>
-                    <th>Category Logo</th>
+                    <th></th>
                     <th>Amount</th>
                 </tr>
                 </thead>
@@ -46,31 +45,18 @@ function TransactionsList() {
                 {
                     transactions.map((transaction) => (
                         <tr key={transaction.id}>
-                            {/* Date Column */}
                             <td>{transaction.date}</td>
-
-                            {/* Merchant Logo Column */}
                             <td>
-                                {transaction.merchantLogo ? (
-                                    <img src={transaction.merchantLogo} alt="Merchant Logo" width="30" height="30" />
-                                ) : (
-                                    <span>No Logo</span>
+                                {transaction.merchantLogo && (
+                                    <img src={transaction.merchantLogo} alt="Merchant Logo" className="logo" />
                                 )}
                             </td>
-
-                            {/* Description Column */}
                             <td>{transaction.name}</td>
-
-                            {/* Category Logo Column */}
                             <td>
-                                {transaction.categoryLogo ? (
-                                    <img src={transaction.categoryLogo} alt="Category Logo" width="30" height="30" />
-                                ) : (
-                                    <span>No Logo</span>
+                                {transaction.categoryLogo && (
+                                    <img src={transaction.categoryLogo} alt="Category Logo" className="logo" />
                                 )}
                             </td>
-
-                            {/* Amount Column */}
                             <td>${transaction.amount.toFixed(2)}</td>
                         </tr>
                     ))

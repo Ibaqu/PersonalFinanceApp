@@ -94,6 +94,12 @@ main {
     color: #333;
 }
 
+.logo {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+
 /* Table Styles */
 table {
     width: 100%;
